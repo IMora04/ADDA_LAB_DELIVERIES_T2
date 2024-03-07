@@ -1,6 +1,7 @@
 module ADDA_LAB_DELIVERIES_T2 {
 	
 	exports exercisesP4.exercise1;
+	exports exercisesP4.exercise2;
 	
 	requires solve;
 	requires solve_test;

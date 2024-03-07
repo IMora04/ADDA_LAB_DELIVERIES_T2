@@ -2,6 +2,7 @@ package exercisesP4.exercise2;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import exercisesP4.exercise1.Exercise1LP;
 import exercisesP4.exercise1.Exercise1Reader;
@@ -22,7 +23,7 @@ public class Exercise2LP {
 		return nProducts;
 	}
 	public static Integer getNCategories() {
-		return nCategories;
+		return productCategories.stream().collect(Collectors.toSet()).size();
 	}
 	public static Integer getBudgetPerCategory() {
 		return budgetPerCategory;
@@ -40,15 +41,15 @@ public class Exercise2LP {
 	public static void main(String[] args) {	
 		
 		String file = "files/Ejercicio2DatosEntrada1.txt";
-		Exercise1Reader.read(file);
+		Exercise2Reader.read(file);
 		System.out.println(getNProducts());
 		
 		try {
-			AuxGrammar.generate(Exercise1LP.class,"LSI files/christmasBasket.lsi","LP files/christmasBasket.lp");
+			AuxGrammar.generate(Exercise2LP.class,"LSI files/christmasBasket.lsi","LP files/christmasBasket.lp");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		GurobiSolution solution = GurobiLp.gurobi("LP files/orchards.lp");
+		GurobiSolution solution = GurobiLp.gurobi("LP files/christmasBasket.lp");
 		System.out.println(solution.toString((s, d) -> d > 0.));
 
 	}
