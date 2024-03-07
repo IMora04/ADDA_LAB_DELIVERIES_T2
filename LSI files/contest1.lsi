@@ -1,0 +1,23 @@
+head section
+
+Integer getNumSubsets()
+Integer getNumElements()
+Double getWeight(Integer i)
+Integer containsElement(Integer s, Integer u)
+
+Integer n = getNumSubsets()
+Integer m = getNumElements()
+
+
+goal section
+
+min sum(getWeight(i) select[i], i in 0 .. n)
+
+constraints section
+
+sum(containsElement(s, p) select[s], s in 0 .. n) >= 1, p in 0 .. m
+
+
+bin
+
+select[i], i in 0 .. n

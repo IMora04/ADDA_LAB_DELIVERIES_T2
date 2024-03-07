@@ -1,0 +1,9 @@
+// HUERTOS
+H0: metrosdisponibles=4;
+H1: metrosdisponibles=6;
+// VARIEDADES
+V0 -> metrosrequeridos=2; incomp=V2,V4,V3;
+V1 -> metrosrequeridos=4; incomp=V2,V4;
+V2 -> metrosrequeridos=3; incomp=V0,V1,V4;
+V3 -> metrosrequeridos=1; incomp=V0,V4;
+V4 -> metrosrequeridos=6; incomp=V0,V1,V2,V3;

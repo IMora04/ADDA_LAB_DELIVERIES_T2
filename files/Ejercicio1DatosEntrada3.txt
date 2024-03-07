@@ -1,0 +1,15 @@
+// HUERTOS
+H0: metrosdisponibles=10;
+H1: metrosdisponibles=5;
+H2: metrosdisponibles=2;
+H3: metrosdisponibles=8;
+// VARIEDADES
+V0 -> metrosrequeridos=6; incomp=V1,V2,V3,V4,V6;
+V1 -> metrosrequeridos=4; incomp=V8,V6,V5,V0,V2,V4,V7;
+V2 -> metrosrequeridos=3; incomp=V0,V1,V6,V7,V3,V5,V8;
+V3 -> metrosrequeridos=1; incomp=V6,V0,V7,V2,V4,V5;
+V4 -> metrosrequeridos=6; incomp=V0,V6,V1,V3,V8;
+V5 -> metrosrequeridos=5; incomp=V3,V2,V1,V6,V8;
+V6 -> metrosrequeridos=2; incomp=V0,V8,V5,V3,V1,V2,V4,V7;
+V7 -> metrosrequeridos=5; incomp=V8,V1,V6,V2,V3;
+V8 -> metrosrequeridos=2; incomp=V4,V2,V5,V1,V7,V6;

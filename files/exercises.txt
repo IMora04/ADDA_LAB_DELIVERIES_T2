@@ -1,0 +1,44 @@
+
+1. A farmer has several orchards, each of different size in square meters. It is desired
+to plan the planting of different varieties of vegetables. Each variety requires a
+specific amount of square meters and may or may not be selected for planting. If
+a variety is selected, it would be planted in a single orchard. In addition, some
+varieties may be incompatible with each other, meaning they cannot be planted in
+the same orcharxd. The goal is to maximize the number of vegetable varieties
+planted, complying with the space and compatibility restrictions between them.
+
+
+
+2. It is desired to compose a Christmas basket that includes various products. For
+each product, its category, price, and rating (integer between 1 and 5) are known.
+Determine the composition of the basket in such a way that:
+	• among the selected products, all categories must be covered,
+	• it is necessary that the average of the ratings of all the selected products is
+	greater than or equal to 3,
+	• the total price of the selected products from the same category cannot exceed
+	a given budget (this budget is common to all categories), and
+	• the desire is to minimize the total price of the basket.
+
+
+
+3. A product distributor must decide the number of units of different products to send
+to different destinations. For each destination, the minimum total quantity demand
+of products to be stored at that destination, which must be met, is known. For each
+type of product, the maximum number of units available that the distributor can
+send is known. Additionally, for each type of product and each destination,
+information is available about the storage cost of each unit of product at that
+destination. The objective is to know how many units of each product to send to
+each destination, minimizing the total storage cost, and meeting the minimum
+product demands of each destination.
+
+
+
+4. Given a list of people, it is necessary to pair them two by two (in the case of an
+odd number of people, one would remain unpaired). For each person, the set of
+languages they speak, their age, and their nationality are known. The affinity that
+exists between each pair of people (integer in [0, 5]) is also known. The solution
+should maximize the total sum of affinities obtained with the pairings made,
+taking into account that the paired people must have:
+	• at least one language in common,
+	• a maximum of 5 years of age difference, and
+	• different nationalities.

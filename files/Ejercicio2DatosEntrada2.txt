@@ -1,0 +1,9 @@
+Presupuesto = 100
+//Id_prod:Precio:Categoria:Valoracion
+0:75:3:5
+1:10:2:4
+2:15:1:2
+3:50:0:2
+4:80:1:5
+5:95:2:5
+6:25:3:4

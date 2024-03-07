@@ -1,0 +1,7 @@
+Presupuesto = 150
+//Id_prod:Precio:Categoria:Valoracion
+0:10:0:5
+1:150:0:4
+2:150:1:4
+3:100:2:2
+4:120:2:5

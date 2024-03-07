@@ -1,0 +1,24 @@
+head section
+
+Integer getNOrchards()
+Integer getNVarieties()
+Integer getOrchardSize(Integer i)
+Integer getReqSpace(Integer i)
+Boolean isIncompatible(Integer i, Integer j)
+
+Integer nOrch = getNOrchards()
+Integer nVar = getNVarieties()
+
+goal section
+
+max sum(var[i, j], i in 0 .. nVar, j in 0 .. nOrch)
+
+constraints section
+
+sum(var[i, j], j in 0 .. nOrch) <= 1, i in 0 .. nVar
+var[a, j] + var[b, j] <= 1, a in 0 .. nVar, b in 0 .. nVar, j in 0 .. nOrch | isIncompatible(a, b)
+sum(getReqSpace(i) var[i, j], i in 0 .. nVar) <= getOrchardSize(j), j in 0 .. nOrch 
+
+bin
+
+var[i, j], i in 0 .. nVar, j in 0 .. nOrch
