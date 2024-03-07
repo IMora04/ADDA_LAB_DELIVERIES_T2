@@ -1,0 +1,24 @@
+head section
+
+Integer getNProducts()
+Integer getNCategories()
+Integer getBudgetPerCategory()
+Integer getProductPrice(Integer i)
+Integer getProductCategory(Integer i)
+Integer getProductRating(Integer i)
+
+Integer n = getNProducts()
+
+goal section
+
+min sum(getProductPrice(i) var[i], i in 0 .. n)
+
+constraints section
+
+sum(var[i], i in 0 .. n | getProductCategory(i) = j) >= 1, j in 0 .. getNCategories()
+sum(getProductPrice(i) var[i], i in 0 .. n | getProductCategory(i) = j) <= getBudgetPerCategory(), j in 0 .. getNCategories()
+sum(getProductRating(i) var[i], i in 0 .. n) - sum(3 var[i], i in 0 .. n) >= 0
+
+bin
+
+var[i], i in 0 .. n
