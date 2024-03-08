@@ -8,9 +8,9 @@ import java.util.Map.Entry;
 import us.lsi.ag.ValuesInRangeData;
 import us.lsi.ag.agchromosomes.ChromosomeFactory.ChromosomeType;
 
-public class Exercise1AG implements ValuesInRangeData<Integer, SolutionEx1AG>{
+public class Exercise1GA implements ValuesInRangeData<Integer, SolutionEx1GA>{
 
-	public Exercise1AG(String file) {
+	public Exercise1GA(String file) {
 		Exercise1Reader.read(file);
 	}
 	
@@ -30,7 +30,7 @@ public class Exercise1AG implements ValuesInRangeData<Integer, SolutionEx1AG>{
 		
 		Integer var = 0;
 		for(Integer orch:value) {
-			m = SolutionEx1AG.check(orch, var, m);
+			m = SolutionEx1GA.check(orch, var, m);
 			var += 1;
 		}
 		
@@ -55,13 +55,13 @@ public class Exercise1AG implements ValuesInRangeData<Integer, SolutionEx1AG>{
 
 		}
 		
-		Integer of = SolutionEx1AG.getTotalVarietiesSelected(m);
+		Integer of = SolutionEx1GA.getTotalVarietiesSelected(m);
 		
 		return Double.valueOf(of - k * (penaltySizes + penaltyIncompatible));
 	}
 
-	public SolutionEx1AG solucion(List<Integer> value) {
-		return SolutionEx1AG.of_range(value);
+	public SolutionEx1GA solucion(List<Integer> value) {
+		return SolutionEx1GA.of_range(value);
 	}
 
 	public Integer max(Integer i) {

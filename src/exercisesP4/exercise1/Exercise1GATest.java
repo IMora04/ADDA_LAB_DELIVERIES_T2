@@ -6,7 +6,7 @@ import java.util.Locale;
 import us.lsi.ag.agchromosomes.AlgoritmoAG;
 import us.lsi.ag.agstopping.StoppingConditionFactory;
 
-public class Exercise1AGTest {
+public class Exercise1GATest {
 	
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.of("en", "US"));
@@ -19,10 +19,10 @@ public class Exercise1AGTest {
 		StoppingConditionFactory.NUM_GENERATIONS = 1000;
 		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
 		
-		Exercise1AG p = new Exercise1AG("files/Ejercicio1DatosEntrada1.txt");
+		Exercise1GA p = new Exercise1GA("files/Ejercicio1DatosEntrada1.txt");
 		
 		
-		AlgoritmoAG<List<Integer>,SolutionEx1AG> ap = AlgoritmoAG.of(p);
+		AlgoritmoAG<List<Integer>,SolutionEx1GA> ap = AlgoritmoAG.of(p);
 		ap.ejecuta();
 		
 
