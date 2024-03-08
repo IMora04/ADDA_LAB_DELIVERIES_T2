@@ -6,17 +6,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class SolutionEx1AG {
+public class SolutionEx1GA {
 	
 	private Map<Integer, List<Integer>> m;
 	private Integer totalVarieties;
 
 
-	public static SolutionEx1AG of_range(List<Integer> ls) {
-		return new SolutionEx1AG(ls);
+	public static SolutionEx1GA of_range(List<Integer> ls) {
+		return new SolutionEx1GA(ls);
 	}
 	
-	private SolutionEx1AG(List<Integer> ls) {
+	private SolutionEx1GA(List<Integer> ls) {
 		m = new HashMap<Integer, List<Integer>>();
 		Integer var = 0;
 		for(Integer orch:ls) {
