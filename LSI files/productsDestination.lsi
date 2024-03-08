@@ -1,0 +1,24 @@
+head section
+
+Integer getNProducts()
+Integer getNDestinations()
+Integer getMinDemand(Integer i)
+Integer getProductsAvailable(Integer i)
+Integer getCost(Integer p, Integer d)
+
+Integer n = getNProducts()
+Integer m = getNDestinations()
+
+goal section
+
+min sum(getCost(p, d) delivered[p, d], p in 0 .. n, d in 0 .. m)
+
+constraints section
+
+sum(delivered[p, d], p in 0 .. n) >= getMinDemand(d), d in 0 .. m
+sum(delivered[p, d], d in 0 .. m) <= getProductsAvailable(p), p in 0 .. n
+
+int
+
+delivered[p, d], p in 0 .. n, d in 0 .. m
+
