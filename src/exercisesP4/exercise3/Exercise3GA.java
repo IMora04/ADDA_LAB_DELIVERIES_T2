@@ -77,7 +77,7 @@ public class Exercise3GA implements ValuesInRangeData<Integer, SolutionEx3GA> {
 	}
 
 	public Integer max(Integer i) {
-		return Exercise3LP.getProductsAvailable(getProductFromIndex(i));
+		return Exercise3LP.getProductsAvailable(getProductFromIndex(i)) + 1;
 	}
 
 	public Integer min(Integer i) {
