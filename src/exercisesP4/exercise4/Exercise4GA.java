@@ -30,7 +30,7 @@ public class Exercise4GA implements SeqNormalData<SolutionEx4GA>{
 			
 			
 			Set<String> firstLanguages = Ex4Data.getLanguages(first);
-			if(firstLanguages.stream().filter(l -> Ex4Data.getLanguages(second).contains(l)).count() == 0) {
+			if(firstLanguages.stream().filter(l -> Ex4Data.getLanguages(second).contains(l)).findAny().isEmpty()) {
 				penalty += 1;
 			}
 			

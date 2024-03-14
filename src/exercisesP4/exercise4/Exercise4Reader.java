@@ -40,13 +40,15 @@ public class Exercise4Reader {
 			// Add languages
 			String[] languageSet = splittedLine[1].replace("(", "").replace(")", "")
 					.split("=")[1].split(",");
-			List<String> languageList = Arrays.asList(languageSet);
+			List<String> languageList = new ArrayList<>();
+			for(String l:languageSet) {
+				languageList.add(l.trim());
+			}
 			
-			languageList.forEach(t -> t.trim());
 			Ex4Data.languages.put(key, new HashSet<>(languageList));
 			
 			// Add nationality
-			Ex4Data.nationalities.add(splittedLine[2].split("=")[1]);
+			Ex4Data.nationalities.add(splittedLine[2].split("=")[1].trim());
 			
 			//Add affinities
 			Map<Integer, Integer> m = new HashMap<>();
