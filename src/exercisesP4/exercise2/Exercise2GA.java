@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import exercisesP4.exercise3.Exercise3Reader;
 import us.lsi.ag.SeqNormalData;
 import us.lsi.ag.agchromosomes.ChromosomeFactory.ChromosomeType;
 
@@ -69,24 +68,5 @@ public class Exercise2GA implements SeqNormalData<SolutionEx2GA>{
 	public Integer maxMultiplicity(int index) {
 		return 1;
 	}
-	
-	/*
-	 * 
-	 * If valuesInRange
-	 * 	bin? YES. size products, selected as 1
-	 * 		avg >= 3 NO
-	 * 		price < budget NO
-	 * 		1 per cat NO
-	 * 		Just once YES
-	 * 
-	 * If seqNormalData
-	 * 	subList? YES. Objects taken
-	 * 		avg >= 3 NO
-	 * 		price < budget NO
-	 * 		1 per cat NO
-	 * 		Just once YES
-	 * 
-	 * 
-	 */
 
 }
