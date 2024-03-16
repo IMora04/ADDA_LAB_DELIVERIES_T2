@@ -82,32 +82,6 @@ public class Exercise3GA implements ValuesInRangeData<Integer, SolutionEx3GA> {
 
 	public Integer min(Integer i) {
 		return 0;
-	}
-	
-	/*
-3. A product distributor must decide the number of units of different products to send
-to different destinations. For each destination, the minimum total quantity demand
-of products to be stored at that destination, which must be met, is known. For each
-type of product, the maximum number of units available that the distributor can
-send is known. Additionally, for each type of product and each destination,
-information is available about the storage cost of each unit of product at that
-destination. The objective is to know how many units of each product to send to
-each destination, minimizing the total storage cost, and meeting the minimum
-product demands of each destination.
-
-n of units of products to different destinations
-
-sum units < minUnits
-sum units (of each products) < prodAvailable
-
-Less sum of costs
-	 */
-
-	/*
-	 * If values in range:
-	 * 		Range: YES
-	 * 			List of nProd*nDeliv elements
-	 */
-	
+	}	
 
 }

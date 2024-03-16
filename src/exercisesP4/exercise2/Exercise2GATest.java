@@ -3,8 +3,6 @@ package exercisesP4.exercise2;
 import java.util.List;
 import java.util.Locale;
 
-import exercisesP4.exercise3.Exercise3GA;
-import exercisesP4.exercise3.SolutionEx3GA;
 import us.lsi.ag.agchromosomes.AlgoritmoAG;
 import us.lsi.ag.agstopping.StoppingConditionFactory;
 
