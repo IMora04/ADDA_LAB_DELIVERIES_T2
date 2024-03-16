@@ -18,15 +18,19 @@ public class SolutionEx3GA {
 	private SolutionEx3GA(List<Integer> ls) {
 		totalCost = 0;
 		m = new HashMap<Integer, List<Integer>>();
+		
 		for(Integer prod = 0; prod < Exercise3LP.getNProducts(); prod++) {
+			// Initialize list of number of units sent to each destination. One per product type
 			m.put(prod, new ArrayList<Integer>());
+			
+			// Iterate over the chromosome (list) as a matrix
 			for(Integer dest = 0; dest < Exercise3LP.getNDestinations(); dest++) {
 				m.get(prod).add(ls.get(dest*Exercise3LP.getNProducts()+prod));
 				totalCost += Exercise3LP.getCost(prod, dest) * 
 						ls.get(dest*Exercise3LP.getNProducts()+prod);
+				
 			}
 		}
-		
 	}
 	
 	public String toString() {
@@ -48,6 +52,5 @@ public class SolutionEx3GA {
 		
 		return res;
 	}
-
 
 }
