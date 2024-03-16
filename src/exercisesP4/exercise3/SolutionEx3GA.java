@@ -34,7 +34,8 @@ public class SolutionEx3GA {
 	}
 	
 	public String toString() {
-		String res = "MAP: \n";
+		String res = "MAP: Each destination has a list" + "\n" +
+				"of the number of products sent," + "\n" + "for each product" + "\n\n";
 		for(Entry<Integer, List<Integer>> e:m.entrySet()) {
 			
 			String list = "[";
@@ -48,7 +49,7 @@ public class SolutionEx3GA {
 			
 		}
 		
-		res += "TOTAL COST: " + totalCost;
+		res += "\n" + "TOTAL COST: " + totalCost;
 		
 		return res;
 	}

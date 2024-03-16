@@ -45,7 +45,7 @@ public class SolutionEx1GA {
 	}
 
 	public String toString() {
-		String res = "MAP: \n";
+		String res = "MAP: List of varieties in each orchard\n";
 		for(Entry<Integer, List<Integer>> e:m.entrySet()) {
 			
 			String list = "[";
