@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import us.lsi.ag.AuxiliaryAg;
 import us.lsi.ag.SeqNormalData;
 import us.lsi.ag.agchromosomes.ChromosomeFactory.ChromosomeType;
 
@@ -43,16 +44,13 @@ public class Exercise2GA implements SeqNormalData<SolutionEx2GA>{
 			categoriesVisited.add(index);
 		}
 		
-		if(totalRating / value.size() < 3) {
-			penalty += 1;
+		penalty += AuxiliaryAg.distanceToGeZero(Double.valueOf((totalRating / value.size()) - 3));
+		
+		for(Integer totalSpent : totalSpentPerCat) {
+			penalty += AuxiliaryAg.distanceToLeZero(Double.valueOf(totalSpent - Exercise2LP.getBudgetPerCategory()));
 		}
 		
-		Long count = totalSpentPerCat.stream().filter(c -> c > Exercise2LP.getBudgetPerCategory()).count();
-		penalty += count;
-		
-		if(categoriesVisited.size() < Exercise2LP.getNCategories()) {
-			penalty += 1;
-		}
+		penalty += AuxiliaryAg.distanceToGeZero(Double.valueOf(categoriesVisited.size() - Exercise2LP.getNCategories()));
 		
 		return - of - k * penalty;
 	}

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import us.lsi.ag.AuxiliaryAg;
 import us.lsi.ag.ValuesInRangeData;
 import us.lsi.ag.agchromosomes.ChromosomeFactory.ChromosomeType;
 
@@ -23,8 +24,8 @@ public class Exercise1GA implements ValuesInRangeData<Integer, SolutionEx1GA>{
 	}
 
 	public Double fitnessFunction(List<Integer> value) {
-		Integer penaltySizes = 0;
-		Integer penaltyIncompatible = 0;
+		Double penaltySizes = 0.;
+		Double penaltyIncompatible = 0.;
 		Integer k = 10000;
 		Map<Integer, List<Integer>> m = new HashMap<Integer, List<Integer>>();
 		
@@ -41,7 +42,7 @@ public class Exercise1GA implements ValuesInRangeData<Integer, SolutionEx1GA>{
 			Integer availableSpace = Exercise1LP.getOrchardSize(e.getKey());
 			Integer occupiedSpace = varieties.stream().mapToInt(v -> Exercise1LP.getReqSpace(v)).sum();
 			if(occupiedSpace > availableSpace) {
-				penaltySizes += 1;
+				penaltySizes += AuxiliaryAg.distanceToLeZero(Double.valueOf(occupiedSpace - availableSpace));
 			}
 			
 			// Incompatibilities penalty

@@ -3,6 +3,7 @@ package exercisesP4.exercise4;
 import java.util.List;
 import java.util.Set;
 
+import us.lsi.ag.AuxiliaryAg;
 import us.lsi.ag.SeqNormalData;
 import us.lsi.ag.agchromosomes.ChromosomeFactory.ChromosomeType;
 
@@ -36,9 +37,7 @@ public class Exercise4GA implements SeqNormalData<SolutionEx4GA>{
 			
 			Integer dif = Ex4Data.getAge(first) - Ex4Data.getAge(second);
 			dif = dif >= 0 ? dif:-dif;
-			if(dif > 5) {
-				penalty += 1;
-			}
+			penalty += AuxiliaryAg.distanceToGeZero(Double.valueOf(5 - dif));
 			
 			if(Ex4Data.getNationality(first).equals(Ex4Data.getNationality(second))) {
 				penalty += 1;
