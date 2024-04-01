@@ -41,9 +41,7 @@ public class Exercise1GA implements ValuesInRangeData<Integer, SolutionEx1GA>{
 			// Size penalty
 			Integer availableSpace = Exercise1LP.getOrchardSize(e.getKey());
 			Integer occupiedSpace = varieties.stream().mapToInt(v -> Exercise1LP.getReqSpace(v)).sum();
-			if(occupiedSpace > availableSpace) {
-				penaltySizes += AuxiliaryAg.distanceToLeZero(Double.valueOf(occupiedSpace - availableSpace));
-			}
+			penaltySizes += AuxiliaryAg.distanceToLeZero(Double.valueOf(occupiedSpace - availableSpace));
 			
 			// Incompatibilities penalty
 			for(Integer a = 0; a < varieties.size()-1; a++) {
