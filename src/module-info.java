@@ -9,5 +9,6 @@ module ADDA_LAB_DELIVERIES_T2 {
 	requires solve_test;
 	requires partecomun;
 	requires geneticos;
+	requires grafos;
 	
 }
