@@ -1,10 +1,8 @@
 package exercisesP5.exercise3;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -19,29 +17,28 @@ public record DeliveryVertex(Integer index, List<Integer> remainingUnits, List<I
 	public List<Integer> actions() {
 		Integer prod = this.index%DeliveryData.nProducts;
 		Integer dest = this.index/DeliveryData.nProducts;
-		List<Integer> ac = new ArrayList<>();
+		List<Integer> actions = new ArrayList<>();
 		
-		if(this.index.equals(DeliveryData.nProducts*DeliveryData.nDestinations)) {
-			
-		} else if(prod.equals(DeliveryData.nProducts-1)) {
+		if(prod.equals(DeliveryData.nProducts-1)) {
 			if(demandLeft.get(dest) <= remainingUnits.get(prod) && demandLeft.get(dest) >= 0) {
-				ac.add(demandLeft.get(dest));
+				actions.add(demandLeft.get(dest));
 			}
-		} else {
-			ac = IntStream.range(0, DeliveryData.unitsAvailable.get(prod)+1).boxed().collect(Collectors.toList());
+		} else if(!(this.index.equals(DeliveryData.nProducts*DeliveryData.nDestinations))){
+			actions = IntStream.range(0, DeliveryData.unitsAvailable.get(prod)+1)
+					.boxed().collect(Collectors.toList());
 		}
-		ac.sort(Comparator.naturalOrder());
-		return ac;
+		actions.sort(Comparator.naturalOrder());
+		return actions;
 	}
 
 	public DeliveryVertex neighbor(Integer a) {
-		List<Integer> rU = new ArrayList<>(this.remainingUnits);
-		List<Integer> dL = new ArrayList<>(this.demandLeft);
+		List<Integer> remainingUnits = new ArrayList<>(this.remainingUnits);
+		List<Integer> demandLeft = new ArrayList<>(this.demandLeft);
 		Integer dest = this.index/DeliveryData.nProducts;
 		Integer prod = this.index%DeliveryData.nProducts;
-		rU.set(prod, rU.get(prod) - a);
-		dL.set(dest, dL.get(dest) - a);
-		return new DeliveryVertex(this.index+1, rU, dL);
+		remainingUnits.set(prod, remainingUnits.get(prod) - a);
+		demandLeft.set(dest, demandLeft.get(dest) - a);
+		return new DeliveryVertex(this.index+1, remainingUnits, demandLeft);
 	}
 
 	public DeliveryEdge edge(Integer a) {
@@ -61,17 +58,18 @@ public record DeliveryVertex(Integer index, List<Integer> remainingUnits, List<I
 	}
 	
 	public static List<Integer> cheapestProduct() {
-		List<Integer> cP = new ArrayList<>();
+		List<Integer> cheapestProducts = new ArrayList<>();
 		for(int d = 0; d < DeliveryData.nDestinations; d++) {
-			Integer min = Integer.MAX_VALUE/2;
+			Integer min = Integer.MAX_VALUE;
 			for(int p = 0; p < DeliveryData.nProducts; p++) {
-				if(DeliveryData.storingCosts.get(p).get(d) < min) {
-					min = DeliveryData.storingCosts.get(p).get(d);
+				Integer storingCosts = DeliveryData.storingCosts.get(p).get(d);
+				if(min < storingCosts) {
+					min = storingCosts;
 				}
 			}
-			cP.add(min);
+			cheapestProducts.add(min);
 		}
-		return cP;
+		return cheapestProducts;
 	}
 	
 }

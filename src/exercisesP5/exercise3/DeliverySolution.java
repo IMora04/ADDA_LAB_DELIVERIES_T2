@@ -10,22 +10,36 @@ import org.jgrapht.GraphPath;
 public record DeliverySolution(Map<Integer, List<Integer>> sentProducts, Double totalCost) {
 
 	public static DeliverySolution of(GraphPath<DeliveryVertex, DeliveryEdge> g) {
-		Map<Integer, List<Integer>> sP = new HashMap<>();
-		Double tC = 0.;
+		Map<Integer, List<Integer>> sentProducts = new HashMap<>();
+		Double totalCost = 0.;
 		for(DeliveryEdge e:g.getEdgeList()) {
-			DeliveryVertex s = e.source();
-			Integer prod = s.index()%DeliveryData.nProducts;
-			List<Integer> toStore;
-			if(sP.containsKey(prod)) {
-				toStore = sP.get(prod);
-			} else {
-				toStore = new ArrayList<>();
+			Integer prod = e.source().index()%DeliveryData.nProducts;
+			List<Integer> toStore = new ArrayList<>();
+			if(sentProducts.containsKey(prod)) {
+				toStore = sentProducts.get(prod);
 			}
 			toStore.add(e.action());
-			sP.put(prod, toStore);
-			tC += e.weight();
+			sentProducts.put(prod, toStore);
+			totalCost += e.weight();
 		}
-		return new DeliverySolution(sP, tC);
+		return new DeliverySolution(sentProducts, totalCost);
+	}
+	
+	public static DeliverySolution of(DeliveryVertex initial, List<Integer> pastActions) {
+		Map<Integer, List<Integer>> sentProducts = new HashMap<>();
+		Double totalCost = 0.;
+		for(int i = 0; i < pastActions.size(); i++) {
+			Integer prod = i%DeliveryData.nProducts;
+			Integer dest = i/DeliveryData.nProducts;
+			List<Integer> toStore = new ArrayList<>();
+			if(sentProducts.containsKey(prod)) {
+				toStore = sentProducts.get(prod);
+			}
+			toStore.add(pastActions.get(i));
+			sentProducts.put(prod, toStore);
+			totalCost += 1.*pastActions.get(i)*DeliveryData.storingCosts.get(prod).get(dest);
+		}
+		return new DeliverySolution(sentProducts, totalCost);
 	}
 	
 }
