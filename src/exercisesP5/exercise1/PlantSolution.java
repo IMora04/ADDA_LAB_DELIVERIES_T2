@@ -9,14 +9,24 @@ import org.jgrapht.GraphPath;
 public record PlantSolution(Map<Integer, List<Integer>> m, Integer totalVarieties) {
 	
 	public static PlantSolution of(GraphPath<PlantVertex, PlantEdge> g) {
-		Integer tV = 0;
+		Integer totalVarieties = 0;
 		Map<Integer, List<Integer>> m = new HashMap<>();
 		PlantVertex last = g.getEndVertex();
 		for(int i = 0; i < last.varietiesPlanted().size(); i++) {
 			m.put(i, last.varietiesPlanted().get(i));
-			tV += last.varietiesPlanted().get(i).size();
+			totalVarieties += last.varietiesPlanted().get(i).size();
 		}
-		return new PlantSolution(m, tV);
+		return new PlantSolution(m, totalVarieties);
+	}
+	
+	public static PlantSolution of(PlantVertex finalVertex) {
+		Integer totalVarieties = 0;
+		Map<Integer, List<Integer>> m = new HashMap<>();
+		for(int i = 0; i < finalVertex.varietiesPlanted().size(); i++) {
+			m.put(i, finalVertex.varietiesPlanted().get(i));
+			totalVarieties += finalVertex.varietiesPlanted().get(i).size();
+		}
+		return new PlantSolution(m, totalVarieties);
 	}
 
 	public String toString() {
