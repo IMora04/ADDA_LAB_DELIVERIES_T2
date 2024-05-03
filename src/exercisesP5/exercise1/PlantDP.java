@@ -70,14 +70,12 @@ public class PlantDP {
 	}
 	
 	public PlantSolution solution() {
-		List<Integer> actions = new ArrayList<>();
 		PlantVertex v = this.initialProblem;
 		PlantPartialSol s = this.mem.get(v);
 		if(s == null) {
 			return this.bestSol;
 		}
 		while(s.action() != null) {
-			actions.add(s.action());
 			v = v.neighbor(s.action());
 			s = this.mem.get(v);
 		}
