@@ -22,5 +22,9 @@ public record BasketSolution(List<Integer> chosenProducts, Integer totalPrice) {
 		res += "\n\tTotal price of the basket: " + totalPrice;
 		return res;
 	}
+
+	public static BasketSolution of(List<Integer> actions, Integer of) {
+		return new BasketSolution(actions, of);
+	}
 	
 }

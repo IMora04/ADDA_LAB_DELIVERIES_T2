@@ -26,7 +26,7 @@ public class BasketTest {
 		
 		BasketVertex initial = BasketVertex.initial();
 		List<Integer> minPrices = BasketVertex.minPricePerCat();
-		
+		System.out.println(minPrices);
 		EGraph<BasketVertex, BasketEdge> graph = EGraph.virtual(initial, BasketVertex.goal(), PathType.Sum, Type.Min)
 				.edgeWeight(e -> e.weight())
 				.goalHasSolution(BasketVertex.goal())
