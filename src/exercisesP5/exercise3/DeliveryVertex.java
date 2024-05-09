@@ -60,14 +60,18 @@ public record DeliveryVertex(Integer index, List<Integer> remainingUnits, List<I
 	public static List<Integer> cheapestProduct() {
 		List<Integer> cheapestProducts = new ArrayList<>();
 		for(int d = 0; d < DeliveryData.nDestinations; d++) {
-			Integer min = Integer.MAX_VALUE;
+			Integer min = null;
 			for(int p = 0; p < DeliveryData.nProducts; p++) {
 				Integer storingCosts = DeliveryData.storingCosts.get(p).get(d);
-				if(min < storingCosts) {
+				if(min == null || min > storingCosts) {
 					min = storingCosts;
 				}
 			}
-			cheapestProducts.add(min);
+			if(min != null) {
+				cheapestProducts.add(min);
+			} else {
+				cheapestProducts.add(0);
+			}
 		}
 		return cheapestProducts;
 	}
