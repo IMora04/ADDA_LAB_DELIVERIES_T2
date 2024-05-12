@@ -19,7 +19,7 @@ public class PlantTest {
 	public static void main(String[] args) {
 		
 		Locale.setDefault(Locale.of("en", "US"));
-		Integer testFile = 2;
+		Integer testFile = 1;
 		String route = "files/Ejercicio1DatosEntrada" + testFile + ".txt";
 		Exercise1Reader.read(route);
 		
@@ -28,7 +28,9 @@ public class PlantTest {
 		EGraph<PlantVertex, PlantEdge> graph = EGraph.virtual(initial, PlantVertex.goal(), PathType.Sum, Type.Max)
 				.edgeWeight(e -> e.weight())
 				.goalHasSolution(PlantVertex.goal())
-				.heuristic((a,b,c) -> {return (PlantData.nVarieties - a.index())*1. ;})
+				.heuristic((a,b,c) -> {
+					return (PlantData.nVarieties - a.index())*1.
+				;})
 				.build();
 		
 		System.out.println("\n----- TESTS FOR FILE " + route + " -----\n");
@@ -77,7 +79,7 @@ public class PlantTest {
 			PlantSolution s = PlantVertex.getSolution(gpAS.get());
 			System.out.println(s);
 			GraphColors.toDot(
-					dp.outGraph(),
+					aS.outGraph(),
 					"graphSolutions/graphTestASEx1." + testFile + ".gv",
 					v -> v.index() + ", " + v.varietiesPlanted() + ", " + v.spaceLeft(),
 					e -> e.action().toString(),
