@@ -20,7 +20,7 @@ public class DeliveryTest {
 	public static void main(String[] args) {
 		
 		Locale.setDefault(Locale.of("en", "US"));
-		Integer testFile = 2;
+		Integer testFile = 1;
 		String route = "files/Ejercicio3DatosEntrada" + testFile + ".txt";
 		DeliveryReader.read(route);
 		
@@ -38,7 +38,7 @@ public class DeliveryTest {
 					for(Integer i = 0; i < a.demandLeft().size(); i++) {
 						ac += cheapestProducts.get(i) * a.demandLeft().get(i);
 					}
-					return ac;
+					return 0.;
 				})
 				.build();
 		
@@ -54,7 +54,7 @@ public class DeliveryTest {
 			GraphColors.toDot(
 					bt.outGraph(),
 					"graphSolutions/graphTestBTEx3." + testFile + ".gv",
-					v -> "p: " + v.index()%DeliveryData.nProducts + ", d: " + v.index()/DeliveryData.nProducts + ", " + v.demandLeft() + ", " + v.remainingUnits(),
+					v -> "p: " + v.index()%DeliveryData.nProducts + ", d: " + v.index()/DeliveryData.nProducts + ", " + v.demandLeft() + ", " + v.remainingUnits() + v.actions(),
 					e -> "units: " + e.action().toString() + ", cost: " + e.weight(),
 					v -> gpBT.get().getVertexList().contains(v) ? GraphColors.color(Color.blue) : GraphColors.color(Color.black),
 					e -> gpBT.get().getEdgeList().contains(e) ? GraphColors.color(Color.blue) : GraphColors.color(Color.black));
