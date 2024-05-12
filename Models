@@ -1,0 +1,110 @@
+ex1
+
+We have n orchards and m varieties
+each orchard has a size
+each variety needs a space
+some varieties are incompatible
+
+we want to maximize the number of varieties planted
+
+sum of the number of orchards in which a variety is planted <= 1
+no incompatible varieties in the same orchard
+sum of required spaces of varieties planted in an orchard <= orchard size
+
+VERTEX OF VG:
+
+index that indicates the variety to be planted (or not)
+accumulator, list  that indicates the number of varieties planted in each orchard
+accumulator, list that indicates the space left in each orchard
+
+EDGE OF VG: 
+
+action, integer that indicates in which orchard is planted, or null/-1 if not planted
+weight, boolean (integer 0 or 1) that indicates if it has been planted or not (action is different than null/-1)
+
+VG OF TYPE SUM -> To get the OF we sum the weights
+	(If weight was always 0, it could be of type last -> at the end, count number of varieties planted)
+
+ex2
+
+We have n products
+Each product has
+	category (int)
+	price (int)
+	rating (int, 1 to 5)
+	
+min Price
+	
+All categories covered
+Avg. rating >= 3 ----> sum(ratings) / productsSelected >= 3 ----> sum(ratings) / nCategories >= 3 ----> 
+	sum(ratings) >= 3nCategories
+productPrice <= Budget
+
+VERTEX
+
+index that indicates the category of which we will select a product (or not -> no solution)
+accumulator that indicates the sum of the ratings of the products selected until that moment
+
+EDGE
+
+action, integer that indicates the product chosen (that must be of category == index)
+weight, integer. The price of the product chosen
+
+VG OF TYPE SUM -> In each step, we sum the weight of the edges
+
+Ex3
+
+nProducts
+nDestinations
+
+Each destination has a minimum demand
+Each product has
+	nº of units available
+	cost of storage (of each unit), that could be different depending on the destination
+	
+how many of each product to each destination?
+min total cost of storage
+products sent to each dest >= dest minimum demand
+
+VERTEX
+index [0, nDest*nProd] (Dest first. From 0 to nProd-1 -> dest = 0, from nProd to 2nProd-1 -> dest = 1)
+remainingUnits: list of length nProducts. Integer indicating units left.
+demandLeft: list of length nDestinations. Integer indicating the number of units left to be sent, at least.
+
+(3,5 -> 3nDest + 5 = 35. dest = index//nDest; prod = index%nDest)
+
+EDGE
+action, Integer. Number of products of type index%nDest sent to destination index//nDest
+weight, Double. Price of product of type index%nDest stored in destination index//nDest
+
+VG OF TYPE SUM
+
+Ex4
+
+nPeople
+
+Each person has:
+	(set of) languages spoken
+	age
+	nationality
+
+matrix of affinities 
+boolean, nPeople%2 == 0
+
+VERTEX
+index [0, nPeople], that indicates the current step (nothing more). If it is even, the action that will be taken
+	will be the first person of the pair. If it is odd, the action will be the second person of the pair (must meet
+	all the requirements)
+accumulator, list of unpaired people
+accumulator, lastChosen. For choosing the 2nd person of the pair, we need to know the first one. It will be stored here
+
+EDGE
+action. The person chosen for the pair
+weight. If the index of the source vertex is even, its value is 0. If not, its value is the affinity of the person 
+	chosen (action), and the 1st of the pair (in lastChosen)
+
+TYPE OF THE VG -> SUM. 
+We try to maximize the affinity (edge weights)
+
+
+	
