@@ -24,5 +24,14 @@ public record PeopleSolution(List<Integer> pairs, Integer totalAffinity) {
 		}
 		return new PeopleSolution(new ArrayList<>(pairs), totalAffinity);
 	}
+
+	public String toString() {
+		String s = "Solution: \n";
+		for(Integer i = 0; i < pairs.size() / 2; i++) {
+			s += "\tPair " + i + ": " + pairs.get(2*i) + ", " + pairs.get(2*i+1) + "\n";
+		}
+		s += "\tTotal affinity: " + totalAffinity;
+		return s;
+	}
 	
 }

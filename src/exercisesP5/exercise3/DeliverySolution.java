@@ -41,5 +41,14 @@ public record DeliverySolution(Map<Integer, List<Integer>> sentProducts, Double 
 		}
 		return new DeliverySolution(sentProducts, totalCost);
 	}
+
+	public String toString() {
+		String s = "Solution: \n";
+		for(Map.Entry<Integer, List<Integer>> e:sentProducts.entrySet()) {
+			s += ("\tProduct " + e.getKey() +": " + e.getValue() + "\n");
+		}
+		s += "\tTotal storing costs: " + totalCost;
+		return s;
+	}
 	
 }

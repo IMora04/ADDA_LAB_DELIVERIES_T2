@@ -19,7 +19,7 @@ public class Exercise2GATest {
 		StoppingConditionFactory.NUM_GENERATIONS = 1000;
 		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
 		
-		Exercise2GA p = new Exercise2GA("files/Ejercicio2DatosEntrada3.txt");
+		Exercise2GA p = new Exercise2GA("filesPI4/Ejercicio2DatosEntrada3.txt");
 		
 		
 		AlgoritmoAG<List<Integer>,SolutionEx2GA> ap = AlgoritmoAG.of(p);

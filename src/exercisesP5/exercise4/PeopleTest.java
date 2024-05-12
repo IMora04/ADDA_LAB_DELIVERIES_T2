@@ -20,7 +20,7 @@ public class PeopleTest {
 		
 		Locale.setDefault(Locale.of("en", "US"));
 		Integer testFile = 3;
-		String route = "files/Ejercicio4DatosEntrada" + testFile + ".txt";
+		String route = "filesPI5/Ejercicio4DatosEntrada" + testFile + ".txt";
 		PeopleReader.read(route);
 		
 		PeopleVertex initial = PeopleVertex.initial();
@@ -92,6 +92,5 @@ public class PeopleTest {
 			System.out.println("No solution");
 		
 	}
-
 	
 }

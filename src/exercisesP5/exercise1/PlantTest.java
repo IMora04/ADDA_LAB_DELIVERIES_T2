@@ -19,8 +19,8 @@ public class PlantTest {
 	public static void main(String[] args) {
 		
 		Locale.setDefault(Locale.of("en", "US"));
-		Integer testFile = 1;
-		String route = "files/Ejercicio1DatosEntrada" + testFile + ".txt";
+		Integer testFile = 3;
+		String route = "filesPI5/Ejercicio1DatosEntrada" + testFile + ".txt";
 		Exercise1Reader.read(route);
 		
 		PlantVertex initial = PlantVertex.initial();

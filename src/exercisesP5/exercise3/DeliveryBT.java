@@ -57,7 +57,7 @@ public class DeliveryBT {
 	
 	public static void main(String[] args) {
 		Integer testFile = 3;
-		String route = "files/Ejercicio3DatosEntrada" + testFile + ".txt";
+		String route = "filesPI5/Ejercicio3DatosEntrada" + testFile + ".txt";
 		DeliveryReader.read(route);
 		DeliveryBT bt = DeliveryBT.of();
 		bt.btm(DeliveryVertex.initial());

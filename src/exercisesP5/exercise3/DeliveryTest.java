@@ -20,8 +20,8 @@ public class DeliveryTest {
 	public static void main(String[] args) {
 		
 		Locale.setDefault(Locale.of("en", "US"));
-		Integer testFile = 1;
-		String route = "files/Ejercicio3DatosEntrada" + testFile + ".txt";
+		Integer testFile = 3;
+		String route = "filesPI5/Ejercicio3DatosEntrada" + testFile + ".txt";
 		DeliveryReader.read(route);
 		
 		DeliveryVertex initial = DeliveryVertex.initial();
@@ -38,7 +38,7 @@ public class DeliveryTest {
 					for(Integer i = 0; i < a.demandLeft().size(); i++) {
 						ac += cheapestProducts.get(i) * a.demandLeft().get(i);
 					}
-					return 0.;
+					return ac;
 				})
 				.build();
 		

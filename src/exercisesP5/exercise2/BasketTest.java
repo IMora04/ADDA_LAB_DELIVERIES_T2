@@ -21,7 +21,7 @@ public class BasketTest {
 		
 		Locale.setDefault(Locale.of("en", "US"));
 		Integer testFile = 3;
-		String route = "files/Ejercicio2DatosEntrada" + testFile + ".txt";
+		String route = "filesPI5/Ejercicio2DatosEntrada" + testFile + ".txt";
 		BasketReader.read(route);
 		
 		BasketVertex initial = BasketVertex.initial();
@@ -91,6 +91,5 @@ public class BasketTest {
 			System.out.println("No solution");
 		
 	}
-
 
 }

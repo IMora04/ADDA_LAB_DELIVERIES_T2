@@ -19,7 +19,7 @@ public class Exercise3GATest {
 		StoppingConditionFactory.NUM_GENERATIONS = 1000;
 		StoppingConditionFactory.stoppingConditionType = StoppingConditionFactory.StoppingConditionType.GenerationCount;
 		
-		Exercise3GA p = new Exercise3GA("files/Ejercicio3DatosEntrada2.txt");
+		Exercise3GA p = new Exercise3GA("filesPI4/Ejercicio3DatosEntrada2.txt");
 		
 		
 		AlgoritmoAG<List<Integer>,SolutionEx3GA> ap = AlgoritmoAG.of(p);

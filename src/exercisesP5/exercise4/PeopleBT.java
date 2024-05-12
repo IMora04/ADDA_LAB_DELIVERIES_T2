@@ -48,7 +48,7 @@ public class PeopleBT {
 	
 	public static void main(String[] args) {
 		Integer testFile = 3;
-		String route = "files/Ejercicio4DatosEntrada" + testFile + ".txt";
+		String route = "filesPI5/Ejercicio4DatosEntrada" + testFile + ".txt";
 		PeopleReader.read(route);
 		PeopleBT bt = PeopleBT.of();
 		bt.btm(PeopleVertex.initial());

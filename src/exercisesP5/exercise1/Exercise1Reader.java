@@ -77,14 +77,5 @@ public class Exercise1Reader {
 		
 		PlantData.nVarieties = reqSpace.size();
 	}
-	
-	public static void main(String[] args) {
 		
-		read("files/Ejercicio1DatosEntrada3.txt");
-		System.out.println(PlantData.orchardSize);
-		System.out.println(PlantData.reqSpace);
-		System.out.println(PlantData.incompatibles);
-		
-	}
-	
 }

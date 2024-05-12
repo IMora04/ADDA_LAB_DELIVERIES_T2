@@ -7,12 +7,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import exercisesP5.exercise1.Exercise1Reader;
-import exercisesP5.exercise1.PlantDP;
-import exercisesP5.exercise1.PlantPartialSol;
-import exercisesP5.exercise1.PlantSolution;
-import exercisesP5.exercise1.PlantVertex;
-
 public class BasketDP {
 	
 	private BasketVertex initialProblem;
@@ -37,7 +31,8 @@ public class BasketDP {
 	}
 	
 	public Double heuristic(BasketVertex v, Integer a) {
-		return 0.;
+		List<Integer> minPrices = BasketVertex.minPricePerCat();
+		return 1.*minPrices.subList(v.index(), minPrices.size()).stream().mapToInt(m->m).sum();
 	}
 		
 	public BasketPartialSol dpmAux(BasketVertex v, Double acumPrice, Map<BasketVertex, BasketPartialSol> mem) {
@@ -85,11 +80,11 @@ public class BasketDP {
 		}
 		return BasketSolution.of(actions, of);
 	}
-	
+		
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.of("en", "US"));
 		Integer testFile = 3;
-		String route = "files/Ejercicio2DatosEntrada" + testFile + ".txt";
+		String route = "filesPI5/Ejercicio2DatosEntrada" + testFile + ".txt";
 		BasketReader.read(route);
 		BasketDP dp = BasketDP.of();
 		dp.dpm(BasketVertex.initial(), null, null);
